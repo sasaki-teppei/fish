@@ -1,0 +1,30 @@
+<%= form_tag("/users/create") do %> 
+  <div>
+      <p>ユーザーネーム</p>
+      <input name="user_name" >
+  </div>
+  <div>
+      <p>名前</p>
+      <input name="name">
+  </div>
+  <div>
+      <p>電話番号</p>
+      <input name="phone_number">
+  </div>
+  <div>
+      <p>Eメールアドレス</p>
+      <input name="email" >
+  </div>
+  <div>
+      <p>住所</p>
+      <input name="address">
+  </div>
+  <div>
+      <p>パスワード</p>
+      <input type="password" name="password">
+  </div>
+  <div>
+      <input type="submit" value="新規登録">
+  </div>
+<% end %>
+  

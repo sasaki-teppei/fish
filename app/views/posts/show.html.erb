@@ -1,0 +1,7 @@
+<div>
+  <%= @post.content %><br>
+  <% @post.replies.each do | reply | %><br>
+    <%= reply.content %><br>
+    <%= image_tag reply.image_name.url %><br>
+  <% end %>
+</div>

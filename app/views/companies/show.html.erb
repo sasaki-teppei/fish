@@ -1,0 +1,24 @@
+<header>
+  <%= link_to("新規投稿","/topics/new") %>
+  <%= link_to("投稿一覧", "/posts/index") %>
+  <%= link_to("ログアウト","/top/index") %>
+</header>
+<div class="show-wrapper text-center">
+    <p>
+      <%= @company.company_name %>
+    </p>
+    <p>
+      <%= @company.address %>
+    </p>
+    <p>
+      <%= @company.phone_number %>
+    </p>
+  <% @company.topics.each do |topic| %>
+    <p>
+      <%= topic.content %>
+    </p>
+    <p>
+      <%= image_tag topic.image_name.url %>
+    </p>
+  <% end %>
+</div>

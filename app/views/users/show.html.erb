@@ -1,0 +1,27 @@
+<header>
+    <%= link_to("新規投稿","/posts/#{@user.id}/new") %>
+    <%= link_to("投稿一覧", "/topics/index") %>
+    <%= link_to("ログアウト","/top/index") %>
+    <%= link_to("保存した投稿","/users/save") %>
+</header>
+<div class="show-wrapper">
+    <div class="user text-center">
+      <p>
+          ユーザー名：
+          <%= @user.user_name %>
+      </p>
+      <p>
+          <%= link_to("編集","/users/#{@user.id}/edit") %>
+      </p>
+      <% @user.posts.each do |post| %>
+        <p>
+            <%= link_to(post.content,"/posts/#{post.id}") %>
+        </p>
+      <% end %>
+    </div>
+</div>
+
+<% if @user.has_role? :admin %>
+  <p>管理者だよ〜</p>
+<% end %>
+

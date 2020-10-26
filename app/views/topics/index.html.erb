@@ -1,0 +1,16 @@
+<% @topics.each do |topic| %>
+  <h>会社名</h><br>
+    <%= topic.company.company_name %><br>
+  <h>画像</h><br>
+    <img src ="<%= topic.image_name %>"><br>
+  <h>投稿内容</h><br>
+    <%= topic.content %><br>
+    <% if Like.find_by(user_id: current_user.id, topic_id: topic.id) %>
+        <%= '保存したよ' %>
+    <% else %>
+        <%= link_to likes_create_path(topic_id: topic.id), method: :post do %>
+        <%= '保存してないよ' %>
+    <% end %>
+    <% end %><br>
+    <br>
+<% end %>

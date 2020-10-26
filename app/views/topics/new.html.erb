@@ -1,0 +1,7 @@
+<div class="reply text-center">
+    <%= form_tag("/topics/create",{multipart: true}) do %>
+      <textarea name="content"></textarea>
+      <%= file_field_tag :image_name %>
+      <input type="submit" name="送信" >
+    <% end %>
+</div>
