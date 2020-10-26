@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   get 'users/save'
+  get 'users/payment'
   get 'top/index'
   get 'topics/new'
   get 'replies/new'
@@ -32,6 +33,9 @@ Rails.application.routes.draw do
   get  'companies/show'
   get 'topics/index'
   post 'likes/create' => 'likes#create'
+  get 'card/new'
+  post 'card/create'
+  get 'card/show'
   root 'top#index'
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

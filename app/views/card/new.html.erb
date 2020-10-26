@@ -1,0 +1,40 @@
+<h>クレジットカード情報登録</h>
+<%= form_tag("/card/create", id: "charge-form", name: "inputForm") do %>
+  <p>カード番号</p>
+  <%= text_field_tag "number", "", type: "text", id: "card_number", maxlength: "16" %>
+  <p>有効期限</p>
+  <select type="text" name ="exp_month" id="exp_month">
+    <option value="" >--</option>
+    <option value="1" >01</option>
+    <option value="2" >02</option>
+    <option value="3" >03</option>
+    <option value="4" >04</option>
+    <option value="5" >05</option>
+    <option value="6" >06</option>
+    <option value="7" >07</option>
+    <option value="8" >08</option>
+    <option value="9" >09</option>
+    <option value="10" >10</option>
+    <option value="11" >11</option>
+    <option value="12" >12</option>
+  </select>
+  <select type="text" name ="exp_year" id="exp_year">
+    <option value="" >--</option>
+    <option value="2020" >20</option>
+    <option value="2021" >21</option>
+    <option value="2022" >22</option>
+    <option value="2023" >23</option>
+    <option value="2024" >24</option>
+    <option value="2025" >25</option>
+    <option value="2026" >26</option>
+    <option value="2027" >27</option>
+    <option value="2028" >28</option>
+    <option value="2029" >29</option>
+    <option value="2030" >30</option>
+  </select>
+  <p>セキュリティコード</p>
+  <p>背面の三桁もしくは四桁の番号</p>
+  <%= text_field_tag "cvc", "", type: "text", id: "cvc", maxlength: "4" %>
+  <div id="card_token"></div>
+  <%= submit_tag "登録する", id: "token_submit" %> 
+  <% end %>
