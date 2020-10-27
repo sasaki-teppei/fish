@@ -1,1 +1,18 @@
+<%= link_to("クレジットカードの追加","/card/new") %>
+<br>
 <h>登録クレジットカード情報</h>
+<br>
+<% if @card == nil %>
+  <%= "カード情報はありません" %>
+<% else %>
+  <br>
+  <%= "************"+@default_card_information.last4 %>
+  <br>
+  <% exp_month = @default_card_information.exp_month.to_s %>
+  <% exp_year = @default_card_information.exp_year.to_s.slice(2,3) %>
+  <%= exp_month + " / " + exp_year %><br>
+  <%= form_tag("/card/delete") do %>
+    <input type: "hidden", name: "card_id", value:" ", maxlength= "16"><br>
+    <%= submit_tag "削除する" %>
+  <% end %>
+<% end %>      

@@ -36,6 +36,7 @@ Rails.application.routes.draw do
   get 'card/new'
   post 'card/create'
   get 'card/show'
+  post 'card/delete'
   root 'top#index'
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
