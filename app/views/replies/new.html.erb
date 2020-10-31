@@ -1,7 +1,10 @@
 <div class="reply text-center">
     <%= form_tag("/replies/create",{multipart: true}) do %>
       <%= hidden_field_tag :post_id, @post_id %>
-      <textarea name="content"></textarea>
+      <h>商品詳細</h><br>
+      <textarea name="content"></textarea><br>
+      <h>お値段</h><br>
+      <input name="price"><br>
       <%= file_field_tag :image_name %>
       <input type="submit" name="送信" >
     <% end %>

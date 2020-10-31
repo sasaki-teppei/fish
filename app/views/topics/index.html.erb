@@ -5,6 +5,8 @@
     <img src ="<%= topic.image_name %>"><br>
   <h>投稿内容</h><br>
     <%= topic.content %><br>
+  <h>値段</h><br>
+    <%= topic.price %><br>
     <% if Like.find_by(user_id: current_user.id, topic_id: topic.id) %>
         <%= '保存したよ' %>
     <% else %>

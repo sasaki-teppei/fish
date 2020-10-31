@@ -9,6 +9,7 @@ class RepliesController < ApplicationController
     @reply.company_id = current_company.id
     @reply.post_id = params[:post_id]
     @reply.content = params[:content]
+    @reply.price = params[:price]
     @reply.image_name = params[:image_name]
     #binding.pry
     if @reply.save

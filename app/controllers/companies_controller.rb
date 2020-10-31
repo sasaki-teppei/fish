@@ -5,8 +5,10 @@ class CompaniesController < ApplicationController
   
   def create
     @company = Company.new(company_name: params[:company_name], email: params[:email], phone_number: params[:phone_number], address: params[:address], password: params[:password], image_name: params[:image_name])
-    @company.save
-    redirect_to("/companies/#{@company.id}")
+    if @company.save
+      session[:company_id] = @company.id
+      redirect_to("/companies/#{@company.id}")
+    end
   end
   
   def show

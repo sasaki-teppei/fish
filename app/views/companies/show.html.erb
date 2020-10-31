@@ -10,10 +10,14 @@
     </p>
   <% @company.topics.each do |topic| %>
     <p>
-      <%= topic.content %>
+      <%= topic.content %><br>
+      <%= topic.price %>
     </p>
     <p>
       <%= image_tag topic.image_name.url %>
+    </p>
+    <p>
+      <%= topic.created_at %>
     </p>
   <% end %>
 </div>

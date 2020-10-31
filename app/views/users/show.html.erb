@@ -10,12 +10,14 @@
       <% @user.posts.each do |post| %>
         <p>
             <%= link_to(post.content,"/posts/#{post.id}") %>
+            <%= post.created_at %>
         </p>
+        <br>
       <% end %>
     </div>
 </div>
 
 <% if @user.has_role? :admin %>
-  <p>管理者だよ〜</p>
+  <p>管理者だよ</p>
 <% end %>
 

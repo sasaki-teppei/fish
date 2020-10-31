@@ -1,5 +1,6 @@
 <% @likes.each do |like| %>
   <%= like.topic.company.company_name %><br>
-  <%= like.topic.content %><br>
   <%= image_tag like.topic.image_name.url %><br>
+  <%= like.topic.content %><br>
+  <%= like.topic.price %><br>
 <% end %>

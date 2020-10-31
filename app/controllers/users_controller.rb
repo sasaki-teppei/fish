@@ -5,8 +5,10 @@ class UsersController < ApplicationController
     
     def create
         @user = User.new(user_name: params[:user_name], name: params[:name], phone_number: params[:phone_number], email: params[:email], address: params[:address], password: params[:password])
-        @user.save
-        redirect_to ("/users/#{@user.id}")
+        if @user.save
+          session[:user_id] = @user.id
+          redirect_to ("/users/#{@user.id}")
+        end
     end
     
     def show
