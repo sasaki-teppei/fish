@@ -2,6 +2,8 @@ Rails.application.routes.draw do
   get 'users/save'
   get 'users/payment'
   get 'top/index'
+  post 'top/company_logout' => 'top#company_logout'
+  post 'top/user_logout' => 'top#user_logout'
   get 'topics/new'
   get 'replies/new'
   get 'top/company_login' => 'top#company_login_form'
