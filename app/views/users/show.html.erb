@@ -2,12 +2,12 @@
     <div class="user text-center">
       <p>
           ユーザー名：
-          <%= @user.user_name %>
+          <%= current_user.user_name %>
       </p>
       <p>
-          <%= link_to("編集","/users/#{@user.id}/edit") %>
+          <%= link_to("編集","/users/#{current_user.id}/edit") %>
       </p>
-      <% @user.posts.each do |post| %>
+      <% current_user.posts.each do |post| %>
         <p>
             <%= link_to(post.content,"/posts/#{post.id}") %>
             <%= post.created_at %>
@@ -17,7 +17,7 @@
     </div>
 </div>
 
-<% if @user.has_role? :admin %>
+<% if current_user.has_role? :admin %>
   <p>管理者だよ</p>
 <% end %>
 

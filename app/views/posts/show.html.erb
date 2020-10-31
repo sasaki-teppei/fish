@@ -1,6 +1,7 @@
 <div>
+  <h>投稿内容</h><br>
   <%= @post.content %><br>
-  <% @post.replies.each do | reply | %><br>
+  <% @post.replies.each do | reply | %>
     <h>会社名</h><br>
     <%= reply.company.company_name %><br>
   <h>画像</h><br>
@@ -9,5 +10,6 @@
     <%= reply.content %><br>
   <h>値段</h><br>
     <%= reply.price %><br>
+  <%= link_to("購入する","/buy/#{reply.id}/detail") %>
   <% end %>
 </div>

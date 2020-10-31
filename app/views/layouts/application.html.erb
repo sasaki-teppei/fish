@@ -12,11 +12,13 @@
   <body>
     <header>
       <% if current_company.present? %>
+        <%= link_to("ホーム画面","/companies/show") %>
         <%= link_to("新規投稿","/topics/new") %>
         <%= link_to("投稿一覧", "/posts/index") %>
         <%= link_to("ログアウト","/top/company_logout",{method: "post"}) %>
       <% end %>
       <% if current_user.present? %>
+        <%= link_to("ホーム画面","/users/show") %>
         <%= link_to("新規投稿","/posts/#{current_user.id}/new") %>
         <%= link_to("投稿一覧", "/topics/index") %>
         <%= link_to("保存した投稿","/users/save") %>

@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+  get 'buy/detail'
+  get 'buy/done'
+  get 'detail/done'
   get 'users/save'
   get 'users/payment'
   get 'top/index'
@@ -39,6 +42,8 @@ Rails.application.routes.draw do
   post 'card/create'
   get 'card/show'
   post 'card/delete'
+  get 'buy/:reply_id/detail' => 'buy#detail'
+  post 'buy/pay'
   root 'top#index'
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
