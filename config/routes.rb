@@ -44,6 +44,8 @@ Rails.application.routes.draw do
   post 'card/delete'
   get 'buy/:reply_id/detail' => 'buy#detail'
   post 'buy/pay'
+  get 'buy/:topic_id/topic_detail' => 'buy#topic_detail'
+  post 'buy/topic_pay'
   root 'top#index'
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
