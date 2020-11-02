@@ -17,6 +17,8 @@ Rails.application.routes.draw do
   post 'top/index' => 'top#user_logout'
   get 'posts/new'
   get 'companies/new'
+  get 'companies/edit'
+  post 'companies/fix'
   post'companies/create'
   get 'companies/:id' => 'companies#show'
   get 'companies/show'
@@ -25,7 +27,6 @@ Rails.application.routes.draw do
   post 'users/create'
   get 'users/:id' => 'users#show'
   get 'users/:id/edit' => 'users#edit'
-  get 'posts/buy'
   get 'posts/:id/new' => 'posts#new'
   post 'posts/:id/create' => 'posts#create'
   get 'posts/index'
@@ -46,6 +47,9 @@ Rails.application.routes.draw do
   post 'buy/pay'
   get 'buy/:topic_id/topic_detail' => 'buy#topic_detail'
   post 'buy/topic_pay'
+  get 'buy/:like_id/like_detail' => 'buy#like_detail'
+  post 'buy/like_topic_pay'
+  get 'buy/done'
   root 'top#index'
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

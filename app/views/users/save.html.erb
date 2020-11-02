@@ -1,6 +1,13 @@
 <% @likes.each do |like| %>
-  <%= like.topic.company.company_name %><br>
-  <%= image_tag like.topic.image_name.url %><br>
-  <%= like.topic.content %><br>
-  <%= like.topic.price %><br>
+  <h>会社名</h><br>
+    <%= like.topic.company.company_name %><br>
+  <h>画像</h><br>
+    <%= image_tag like.topic.image_name.url %><br>
+  <h>商品内容</h><br>
+    <%= like.topic.content %><br>
+  <h>お値段</h><br>
+    <%= like.topic.price %><br>
+  <h>日時</h>
+      <%= like.topic.created_at %><br>
+  <%= link_to("購入する","/buy/#{like.id}/like_detail") %>
 <% end %>

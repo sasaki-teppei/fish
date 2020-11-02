@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_10_31_062426) do
+ActiveRecord::Schema.define(version: 2020_11_01_082001) do
 
   create_table "cards", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.integer "user_id"
@@ -29,6 +29,8 @@ ActiveRecord::Schema.define(version: 2020_10_31_062426) do
     t.datetime "updated_at", null: false
     t.string "password"
     t.string "email"
+    t.text "profile"
+    t.string "profile_image"
   end
 
   create_table "likes", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|

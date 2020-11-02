@@ -10,4 +10,6 @@ class Company < ApplicationRecord
     
     has_many :replies
     has_many :topics
+    
+    mount_uploader :profile_image, ImageUploader
 end

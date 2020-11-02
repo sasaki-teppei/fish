@@ -4,12 +4,14 @@
   <% @post.replies.each do | reply | %>
     <h>会社名</h><br>
     <%= reply.company.company_name %><br>
-  <h>画像</h><br>
-    <img src ="<%= reply.image_name %>"><br>
-  <h>投稿内容</h><br>
-    <%= reply.content %><br>
-  <h>値段</h><br>
-    <%= reply.price %><br>
+    <h>画像</h><br>
+      <img src ="<%= reply.image_name %>"><br>
+    <h>投稿内容</h><br>
+      <%= reply.content %><br>
+    <h>値段</h><br>
+      <%= reply.price %><br>
+    <h>日時</h><br>
+      <%= reply.created_at %><br>
   <%= link_to("購入する","/buy/#{reply.id}/detail") %>
   <% end %>
 </div>

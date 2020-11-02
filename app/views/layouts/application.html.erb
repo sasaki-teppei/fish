@@ -21,7 +21,7 @@
         <%= link_to("ホーム画面","/users/show") %>
         <%= link_to("新規投稿","/posts/#{current_user.id}/new") %>
         <%= link_to("投稿一覧", "/topics/index") %>
-        <%= link_to("保存した投稿","/users/save") %>
+        <%= link_to("いいね！した投稿","/users/save") %>
         <%= link_to('お支払い方法',"/card/show") %>
         <%= link_to("ログアウト","/top/user_logout",{method: "post"}) %>
       <% end %>

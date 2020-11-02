@@ -23,7 +23,7 @@ class BuyController < ApplicationController
     :customer => @card.customer_id,
     :currency => 'jpy',
   )
-  redirect_to ("/users/show")
+  redirect_to ("/buy/done")
   end
 
   def topic_detail
@@ -39,14 +39,38 @@ class BuyController < ApplicationController
   end
   
   def topic_pay
+    #binding.pry
     @card = Card.where(user_id: current_user.id).first
     Payjp.api_key = ENV['PAYJP_PRIVATE_KEY']
-    #binding.pry
     Payjp::Charge.create(
     :amount => params[:topic_price], 
     :customer => @card.customer_id,
     :currency => 'jpy',
   )
-  redirect_to ("/users/show")
+  redirect_to ("/buy/done")
+  end
+  
+  def like_detail
+    card = Card.where(user_id: current_user.id).first
+    @like = Like.find_by(id: params[:like_id])
+    if card.blank?
+      redirect_to("/users/show")
+    else
+      Payjp.api_key = ENV["PAYJP_PRIVATE_KEY"]
+      customer = Payjp::Customer.retrieve(card.customer_id)
+      @default_card_information = customer.cards.retrieve(card.card_id)
+    end
+  end
+  
+  def like_topic_pay
+    @card = Card.where(user_id: current_user.id).first
+    Payjp.api_key = ENV['PAYJP_PRIVATE_KEY']
+    #binding.pry
+    Payjp::Charge.create(
+    :amount => params[:like_topic_price], 
+    :customer => @card.customer_id,
+    :currency => 'jpy',
+  )
+  redirect_to ("/buy/done")
   end
 end

@@ -7,12 +7,14 @@
     <%= topic.content %><br>
   <h>値段</h><br>
     <%= topic.price %><br>
+  <h>日時</h>
+    <%= topic.created_at %><br>
     <% if Like.find_by(user_id: current_user.id, topic_id: topic.id) %>
-        <%= '保存したよ' %>
+        <%= 'いいね済み！' %>
     <% else %>
         <%= link_to likes_create_path(topic_id: topic.id), method: :post do %>
-        <%= '保存してないよ' %>
+        <%= 'いいねしますか？' %>
     <% end %>
     <% end %><br>
-    <%= link_to("購入する","/buy/#{topic.id}/topic_detail") %><br>
+    <%= link_to("購入する","/buy/#{topic.id}/topic_detail", id: "delete", class: "active") %><br>
 <% end %>

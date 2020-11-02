@@ -1,0 +1,7 @@
+<%= form_tag("/companies/fix",{multipart: true}) do %><br>
+  <h>プロフィール画像の設定</h><br>
+  <%= file_field_tag :profile_image %><br>
+  <h>自己紹介文</h><br>
+  <textarea name= "profile"></textarea><br>
+  <input type="submit" name="送信">
+<% end %>
