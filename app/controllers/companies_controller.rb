@@ -9,8 +9,7 @@ class CompaniesController < ApplicationController
                            phone_number: params[:phone_number],
                            address: params[:address], 
                            password: params[:password],
-                           image_name: params[:image_name],
-                           profile_image: "default_company.png" )
+                           image_name: params[:image_name] )
     if @company.save
       session[:company_id] = @company.id
       redirect_to("/companies/#{@company.id}")
