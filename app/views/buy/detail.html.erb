@@ -12,6 +12,7 @@
   <%= exp_month + " / " + exp_year %><br>
   <%= form_tag("/buy/pay") do %>
     <%= hidden_field_tag :reply_price, @reply.price %>
+    <%= hidden_field_tag :reply_id, @reply.id %>
     <%= submit_tag"商品を購入する" %> 
   <% end %>
 <% end %>

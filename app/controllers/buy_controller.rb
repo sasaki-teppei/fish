@@ -22,8 +22,11 @@ class BuyController < ApplicationController
     :amount => params[:reply_price], 
     :customer => @card.customer_id,
     :currency => 'jpy',
-  )
-  redirect_to ("/buy/done")
+    )
+    @reply = Reply.find_by(id: params[:reply_id])
+    @reply.buyer_id = current_user.id
+    @reply.save
+    redirect_to ("/buy/done")
   end
 
   def topic_detail
@@ -46,8 +49,11 @@ class BuyController < ApplicationController
     :amount => params[:topic_price], 
     :customer => @card.customer_id,
     :currency => 'jpy',
-  )
-  redirect_to ("/buy/done")
+    )
+    @topic = Topic.find_by(id: params[:topic_id])
+    @topic.buyer_id = current_user.id
+    @topic.save
+    redirect_to ("/buy/done")
   end
   
   def like_detail
@@ -70,7 +76,10 @@ class BuyController < ApplicationController
     :amount => params[:like_topic_price], 
     :customer => @card.customer_id,
     :currency => 'jpy',
-  )
-  redirect_to ("/buy/done")
+    )
+    @topic = Topic.find_by(id: params[:like_topic_id])
+    @topic.buyer_id = current_user.id
+    @topic.save
+    redirect_to ("/buy/done")
   end
 end

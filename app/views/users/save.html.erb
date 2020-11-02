@@ -9,5 +9,7 @@
     <%= like.topic.price %><br>
   <h>日時</h>
       <%= like.topic.created_at %><br>
-  <%= link_to("購入する","/buy/#{like.id}/like_detail") %>
+  <% if like.topic.buyer_id.nil? %>
+    <%= link_to("購入する","/buy/#{like.id}/like_detail") %>
+  <% end %>
 <% end %>

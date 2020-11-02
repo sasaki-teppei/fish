@@ -12,6 +12,7 @@
   <%= exp_month + " / " + exp_year %><br>
   <%= form_tag("/buy/like_topic_pay") do %>
     <%= hidden_field_tag :like_topic_price, @like.topic.price %>
+    <%= hidden_field_tag :like_topic_id, @like.topic_id %>
     <%= submit_tag"商品を購入する" %> 
   <% end %>
 <% end %>

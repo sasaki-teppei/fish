@@ -12,6 +12,8 @@
       <%= reply.price %><br>
     <h>日時</h><br>
       <%= reply.created_at %><br>
-  <%= link_to("購入する","/buy/#{reply.id}/detail") %>
+    <% if reply.buyer_id.nil? %>
+      <%= link_to("購入する","/buy/#{reply.id}/detail") %>
+    <% end %>
   <% end %>
 </div>

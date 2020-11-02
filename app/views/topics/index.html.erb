@@ -16,5 +16,7 @@
         <%= 'いいねしますか？' %>
     <% end %>
     <% end %><br>
-    <%= link_to("購入する","/buy/#{topic.id}/topic_detail") %><br>
+    <% if topic.buyer_id.nil? %> 
+      <%= link_to("購入する","/buy/#{topic.id}/topic_detail") %><br>
+    <% end %>
 <% end %>
