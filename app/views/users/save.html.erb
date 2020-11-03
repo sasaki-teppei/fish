@@ -11,5 +11,7 @@
       <%= like.topic.created_at %><br>
   <% if like.topic.buyer_id.nil? %>
     <%= link_to("購入する","/buy/#{like.id}/like_detail") %>
+  <% else %>
+      <h>売り切れました！</h><br>
   <% end %>
 <% end %>

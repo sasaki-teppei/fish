@@ -14,6 +14,8 @@
       <%= reply.created_at %><br>
     <% if reply.buyer_id.nil? %>
       <%= link_to("購入する","/buy/#{reply.id}/detail") %>
+    <% else %>
+      <h>売り切れました！</h><br>
     <% end %>
   <% end %>
 </div>
