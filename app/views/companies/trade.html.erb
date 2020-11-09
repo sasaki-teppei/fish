@@ -1,0 +1,14 @@
+<% @topics.each do |topic| %>
+  <img src="<%=topic.image_name%>"><br>
+  <%= topic.content %><br>
+  <%= topic.price %><br>
+  <h>送付先住所</h><br>
+  <%= topic.address %><br>
+<% end %>
+<% @replies.each do |reply| %>
+   <img src="<%=reply.image_name%>"><br>
+  <%= reply.content %><br>
+  <%= reply.price %><br>
+  <h>送付先住所</h><br>
+  <%= reply.address %><br>
+<% end %>

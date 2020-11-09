@@ -35,4 +35,9 @@ class CompaniesController < ApplicationController
     end
   end
   
+  def trade
+    @topics = Topic.where(buyer_id: true)
+    @replies = Reply.where(buyer_id: true)
+  end
+  
 end

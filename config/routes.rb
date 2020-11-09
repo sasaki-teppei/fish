@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get 'companies/trade'
   get 'buy/detail'
   get 'buy/done'
   get 'detail/done'
