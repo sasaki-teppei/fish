@@ -24,4 +24,28 @@ class UsersController < ApplicationController
         @likes = Like.where(user_id: current_user.id) 
     end
     
+    def trade
+        @topics = Topic.where(buyer_id: current_user.id)
+        @replies = Reply.where(buyer_id: current_user.id)
+    end
+    
+    def point
+      @topic = Topic.find_by(id: params[:topic_id])
+      @topic.point = @topic.price
+      if @topic.save
+        redirect_to("/users/show")
+      else
+        render :new
+      end
+    end
+    
+    def reply_point
+      @reply = Reply.find_by(id: params[:reply_id])
+      @reply.point = @reply.price
+      if @reply.save
+        redirect_to("/users/show")
+      else
+        render :new
+      end
+    end
 end

@@ -1,5 +1,11 @@
 Rails.application.routes.draw do
   get 'companies/trade'
+  get 'companies/point'
+  post 'companies/:topic_id/ship' => 'companies#ship'
+  post 'companies/:reply_id/reply_ship' => 'companies#reply_ship'
+  post 'users/:topic_id/point' => 'users#point'
+  post 'users/:reply_id/reply_point' => 'users#reply_point'
+  get 'users/trade'
   get 'buy/detail'
   get 'buy/done'
   get 'detail/done'

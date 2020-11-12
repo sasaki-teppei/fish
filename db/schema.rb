@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_11_09_030638) do
+ActiveRecord::Schema.define(version: 2020_11_12_145531) do
 
   create_table "cards", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.integer "user_id"
@@ -31,6 +31,7 @@ ActiveRecord::Schema.define(version: 2020_11_09_030638) do
     t.string "email"
     t.text "profile"
     t.string "profile_image"
+    t.integer "point"
   end
 
   create_table "likes", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -57,6 +58,7 @@ ActiveRecord::Schema.define(version: 2020_11_09_030638) do
     t.integer "price"
     t.integer "buyer_id"
     t.string "address"
+    t.integer "point"
   end
 
   create_table "roles", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -79,6 +81,7 @@ ActiveRecord::Schema.define(version: 2020_11_09_030638) do
     t.integer "price"
     t.integer "buyer_id"
     t.string "address"
+    t.integer "point"
   end
 
   create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|

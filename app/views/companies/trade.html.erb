@@ -2,13 +2,24 @@
   <img src="<%=topic.image_name%>"><br>
   <%= topic.content %><br>
   <%= topic.price %><br>
-  <h>送付先住所</h><br>
-  <%= topic.address %><br>
+  <% if topic.address.present? %>
+    <h>送付先住所</h><br>
+    <%= topic.address %><br>
+    <%= link_to("配送しました","/companies/#{topic.id}/ship", {method: :post}) %><br>
+  <% else %>
+    <h>配送は完了しました！</h><br>
+  <% end %>
 <% end %>
+
 <% @replies.each do |reply| %>
-   <img src="<%=reply.image_name%>"><br>
+  <img src="<%=reply.image_name%>"><br>
   <%= reply.content %><br>
   <%= reply.price %><br>
-  <h>送付先住所</h><br>
-  <%= reply.address %><br>
+  <% if reply.address.present? %>
+    <h>送付先住所</h><br>
+    <%= reply.address %><br>
+    <%= link_to("配送しました","/companies/#{reply.id}/reply_ship", {method: :post}) %><br>
+  <% else %>
+    <h>配送は完了しました！</h><br>
+  <% end %>
 <% end %>

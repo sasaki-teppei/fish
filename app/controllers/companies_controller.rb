@@ -36,8 +36,33 @@ class CompaniesController < ApplicationController
   end
   
   def trade
-    @topics = Topic.where(buyer_id: true)
-    @replies = Reply.where(buyer_id: true)
+    @topics = Topic.where(company_id: current_company.id, buyer_id: true)
+    @replies = Reply.where(company_id: current_company.id, buyer_id: true)
   end
   
+  def ship
+    @topic = Topic.find_by(id: params[:topic_id])
+    @topic.address = nil
+    #binding.pry
+    if @topic.save
+      redirect_to("/companies/show")
+    else
+      render :new
+    end
+  end
+  
+  def reply_ship
+    @reply = Reply.find_by(id: params[:reply_id])
+    @reply.address = nil
+    if @reply.save
+      redirect_to("/companies/show")
+    else
+      render :new
+    end
+  end
+  
+  def point
+    @company = Company.find_by(id: current_company.id)
+    @topic = Topic.find_by(id: current_company.id)
+  end
 end

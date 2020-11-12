@@ -16,6 +16,7 @@
         <%= link_to("新規投稿","/topics/new") %>
         <%= link_to("投稿一覧","/posts/index") %>
         <%= link_to("取引一覧","/companies/trade") %>
+        <%= link_to("ポイント一覧","/companies/point") %>
         <%= link_to("ログアウト","/top/company_logout",{method: "post"}) %>
       <% end %>
       <% if current_user.present? %>
@@ -23,6 +24,7 @@
         <%= link_to("新規投稿","/posts/#{current_user.id}/new") %>
         <%= link_to("投稿一覧", "/topics/index") %>
         <%= link_to("いいね！した投稿","/users/save") %>
+        <%= link_to("取引一覧","/users/trade") %>
         <%= link_to('お支払い方法',"/card/show") %>
         <%= link_to("ログアウト","/top/user_logout",{method: "post"}) %>
       <% end %>
