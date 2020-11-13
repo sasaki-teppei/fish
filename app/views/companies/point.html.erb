@@ -1,1 +1,12 @@
-<%= @company.point %>
+<%#= @topics.all.sum(:point) %>
+<%#= @replies.all.sum(:point) %>
+<%# array = [] %>
+<%# @replies.all.each do |reply| %>
+<%# @topics.all.each do |topic| %>
+  <%# array = topic.point, reply.point %>
+<%# end %>
+<%# end %>
+<%#= array %>
+
+<% @sum = @topics.all.sum(:point) ++ @replies.all.sum(:point) %>
+<%= @sum %><br>

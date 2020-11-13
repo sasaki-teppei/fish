@@ -62,7 +62,7 @@ class CompaniesController < ApplicationController
   end
   
   def point
-    @company = Company.find_by(id: current_company.id)
-    @topic = Topic.find_by(id: current_company.id)
+    @topics = Topic.where(id: current_company.id)
+    @replies = Reply.where(id: current_company.id)
   end
 end
