@@ -12,21 +12,49 @@
   <body>
     <header>
       <% if current_company.present? %>
-        <%= link_to("ホーム画面","/companies/show") %>
-        <%= link_to("新規投稿","/topics/new") %>
-        <%= link_to("投稿一覧","/posts/index") %>
-        <%= link_to("取引一覧","/companies/trade") %>
-        <%= link_to("ポイント一覧","/companies/point") %>
-        <%= link_to("ログアウト","/top/company_logout",{method: "post"}) %>
+        <div class="row">
+          <div class="col-md-offset-3 col-md-1">
+            <%= link_to("ホーム画面","/companies/show") %>
+          </div>
+          <div class="col-md-1">
+            <%= link_to("新規投稿","/topics/new") %>
+          </div>
+          <div class="col-md-1">
+            <%= link_to("投稿一覧","/posts/index") %>
+          </div>
+          <div class="col-md-1">
+            <%= link_to("取引一覧","/companies/trade") %>
+          </div>
+          <div class="col-md-1">
+            <%= link_to("ポイント一覧","/companies/point") %>
+          </div>
+          <div class="col-md-1">
+            <%= link_to("ログアウト","/top/company_logout",{method: "post"}) %>
+          </div>
+        </div>
       <% end %>
       <% if current_user.present? %>
-        <%= link_to("ホーム画面","/users/show") %>
-        <%= link_to("新規投稿","/posts/#{current_user.id}/new") %>
-        <%= link_to("投稿一覧", "/topics/index") %>
-        <%= link_to("いいね！した投稿","/users/save") %>
-        <%= link_to("取引一覧","/users/trade") %>
-        <%= link_to('お支払い方法',"/card/show") %>
-        <%= link_to("ログアウト","/top/user_logout",{method: "post"}) %>
+        <div class="col-md-offset-2 col-md-offset-1">
+          <%= link_to("ホーム画面","/users/show") %>
+        </div>
+        <div class="col-md-1">
+          <%= link_to("新規投稿","/posts/#{current_user.id}/new") %>
+        </div>
+        <div class="col-md-1">
+          <%= link_to("投稿一覧", "/topics/index") %>
+        </div>
+        <div class="col-md-1">
+          <%= link_to("いいね！した投稿","/users/save") %>
+        </div>
+        <div class="col-md-1">
+          <%= link_to("取引一覧","/users/trade") %>
+        </div>
+        <div class="col-md-1">
+          <%= link_to('お支払い方法',"/card/show") %>
+        </div>
+        <div class="col-md-1">
+          <%= link_to("ログアウト","/top/user_logout",{method: "post"}) %>
+        </div>
       <% end %>
     </header>
     <script src="https://js.pay.jp/" type="text/javascript" ></script>

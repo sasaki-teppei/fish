@@ -7,6 +7,6 @@
 <%# end %>
 <%# end %>
 <%#= array %>
-
+<h>総売上ポイント</h><br>
 <% @sum = @topics.all.sum(:point) ++ @replies.all.sum(:point) %>
 <%= @sum %><br>

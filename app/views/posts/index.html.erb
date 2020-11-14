@@ -1,5 +1,5 @@
 <% @posts.each do |post| %>
-  <div class="post text-center">
+  <div class="p-index text-center">
     <%= post.content %>
     <%= post.created_at %>
     <%= link_to("提案する","/replies/#{post.id}/new") %>

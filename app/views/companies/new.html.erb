@@ -1,29 +1,17 @@
 <%= form_tag("/companies/create",{multipart: true}) do %> 
-  <div>
+  <div class="c_login col-md-offset-5 col-md-2">
       <p>会社名</p>
       <input name="company_name" >
-  </div>
-  <div>
       <p>Eメール</p>
       <input name="email">
-  </div>
-  <div>
       <p>電話番号</p>
       <input name="phone_number">
-  </div>
-  <div>
       <p>住所</p>
       <input name="address">
-  </div>
-  <div>
       <p>パスワード</p>
       <input type="password" name="password" placeholder="半角英数字8~32文字">
-  </div>
-  <div>
       <p>買参権の写真</p>
       <input name="image_name" type="file">
-  </div>
-  <div>
       <input type="submit" value="新規登録">
   </div>
 <% end %>
