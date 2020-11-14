@@ -12,12 +12,12 @@ class User < ApplicationRecord
      self.add_role(:guest) if self.roles.blank?
    end
   
-    validates :user_name, {uniqueness: true, presence: true}
-    validates :name, {presence: true, uniqueness: true}
-    validates :email, {presence: true, uniqueness: true}
+    #validates :user_name, {uniqueness: true, presence: true}
+    #validates :name, {presence: true, uniqueness: true}
+    #validates :email, {presence: true, uniqueness: true}
     #validates :email, format: { with:/\A[a-zA-Z0-9_\#!$%&`'*+\-{|}~^\/=?\.]+@[a-zA-Z0-9][a-zA-Z0-9\.-]+\z/ }
-    validates :address, {presence: true, uniqueness: true}
-    validates :password, {presence: true}
+    #validates :address, {presence: true, uniqueness: true}
+    #validates :password, {presence: true}
     #validates :password, format: { with:/\A(?=.*?[a-z])(?=.*?\d)[a-z\d]{8,32}+\z/}
     
     has_many :posts

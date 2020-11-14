@@ -34,26 +34,28 @@
         </div>
       <% end %>
       <% if current_user.present? %>
-        <div class="col-md-offset-2 col-md-offset-1">
-          <%= link_to("ホーム画面","/users/show") %>
-        </div>
-        <div class="col-md-1">
-          <%= link_to("新規投稿","/posts/#{current_user.id}/new") %>
-        </div>
-        <div class="col-md-1">
-          <%= link_to("投稿一覧", "/topics/index") %>
-        </div>
-        <div class="col-md-1">
-          <%= link_to("いいね！した投稿","/users/save") %>
-        </div>
-        <div class="col-md-1">
-          <%= link_to("取引一覧","/users/trade") %>
-        </div>
-        <div class="col-md-1">
-          <%= link_to('お支払い方法',"/card/show") %>
-        </div>
-        <div class="col-md-1">
-          <%= link_to("ログアウト","/top/user_logout",{method: "post"}) %>
+        <div class="row">
+          <div class="col-md-offset-2 col-md-1">
+            <%= link_to("ホーム画面","/users/show") %>
+          </div>
+          <div class="col-md-1">
+            <%= link_to("新規投稿","/posts/#{current_user.id}/new") %>
+          </div>
+          <div class="col-md-1">
+            <%= link_to("投稿一覧", "/topics/index") %>
+          </div>
+          <div class="col-md-2">
+            <%= link_to("いいね！した投稿","/users/save") %>
+          </div>
+          <div class="col-md-1">
+            <%= link_to("取引一覧","/users/trade") %>
+          </div>
+          <div class="col-md-1">
+            <%= link_to('お支払い方法',"/card/show") %>
+          </div>
+          <div class="col-md-1">
+            <%= link_to("ログアウト","/top/user_logout",{method: "post"}) %>
+          </div>
         </div>
       <% end %>
     </header>

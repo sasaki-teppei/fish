@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   post 'companies/:reply_id/reply_ship' => 'companies#reply_ship'
   post 'users/:topic_id/point' => 'users#point'
   post 'users/:reply_id/reply_point' => 'users#reply_point'
+  post 'companies/transfer'
   get 'users/trade'
   get 'buy/detail'
   get 'buy/done'

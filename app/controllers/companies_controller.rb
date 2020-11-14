@@ -18,7 +18,7 @@ class CompaniesController < ApplicationController
   
   def show
     @company = Company.find_by(id: params[:id])
-    @topic = Topic.find_by(company_id: params[:company_id])
+    @topics = Topic.where(company_id: current_company.id).order(created_at: :desc)
   end
   
   def edit
@@ -36,8 +36,9 @@ class CompaniesController < ApplicationController
   end
   
   def trade
-    @topics = Topic.where(company_id: current_company.id, buyer_id: true)
-    @replies = Reply.where(company_id: current_company.id, buyer_id: true)
+    @topics = Topic.where(company_id: current_company.id).where.not(buyer_id: nil).order(created_at: :desc)
+    #binding.pry
+    @replies = Reply.where(company_id: current_company.id).where.not(buyer_id: nil).order(created_at: :desc)
   end
   
   def ship
@@ -62,7 +63,18 @@ class CompaniesController < ApplicationController
   end
   
   def point
+    @company = Company.find_by(id: current_company.id)
     @topics = Topic.where(id: current_company.id)
     @replies = Reply.where(id: current_company.id)
   end
+  
+  def transfer
+    @company = Company.find_by(id: current_company.id)
+    @company.point = nil
+    if @company.save
+      flash[:notice] = "振り込み依頼が完了しました"
+      redirect_to("/companies/show")
+    end
+  end
+  
 end

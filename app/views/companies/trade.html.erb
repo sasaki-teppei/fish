@@ -2,12 +2,16 @@
   <img src="<%=topic.image_name%>"><br>
   <%= topic.content %><br>
   <%= topic.price %><br>
-  <% if topic.address.present? %>
-    <h>送付先住所</h><br>
-    <%= topic.address %><br>
-    <%= link_to("配送しました","/companies/#{topic.id}/ship", {method: :post}) %><br>
+  <% if !topic.point.present? %>
+    <% if topic.address.present? %>
+      <h>送付先住所</h><br>
+      <%= topic.address %><br>
+      <%= link_to("配送しました","/companies/#{topic.id}/ship", {method: :post}) %><br>
+    <% else %>
+      <h>配送は完了しました！</h><br>
+    <% end %>
   <% else %>
-    <h>配送は完了しました！</h><br>
+    <h>取引が完了しました！</h><br>
   <% end %>
 <% end %>
 
@@ -15,11 +19,15 @@
   <img src="<%=reply.image_name%>"><br>
   <%= reply.content %><br>
   <%= reply.price %><br>
-  <% if reply.address.present? %>
-    <h>送付先住所</h><br>
-    <%= reply.address %><br>
-    <%= link_to("配送しました","/companies/#{reply.id}/reply_ship", {method: :post}) %><br>
+  <% if !reply.point.present? %>
+    <% if reply.address.present? %>
+      <h>送付先住所</h><br>
+      <%= reply.address %><br>
+      <%= link_to("配送しました","/companies/#{reply.id}/reply_ship", {method: :post}) %><br>
+    <% else %>
+      <h>配送は完了しました！</h><br>
+    <% end %>
   <% else %>
-    <h>配送は完了しました！</h><br>
+    <h>取引が完了しました！</h><br>
   <% end %>
 <% end %>

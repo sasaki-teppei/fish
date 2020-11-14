@@ -4,9 +4,16 @@ class UsersController < ApplicationController
     end
     
     def create
-        @user = User.new(user_name: params[:user_name], name: params[:name], phone_number: params[:phone_number], email: params[:email], address: params[:address], password: params[:password])
+        @user = User.new(user_name: params[:user_name], 
+                         name: params[:name],
+                         phone_number: params[:phone_number],
+                         email: params[:email],
+                         address: params[:address],
+                         password: params[:password])
         if @user.save
           session[:user_id] = @user.id
+          UserNotifierMailer.send_signup_email(@user).deliver
+          #binding.pry
           redirect_to ("/users/#{@user.id}")
         end
     end
@@ -25,14 +32,17 @@ class UsersController < ApplicationController
     end
     
     def trade
-        @topics = Topic.where(buyer_id: current_user.id)
-        @replies = Reply.where(buyer_id: current_user.id)
+        @topics = Topic.where(buyer_id: current_user.id).order(created_at: :desc)
+        @replies = Reply.where(buyer_id: current_user.id).order(created_at: :desc)
     end
     
     def point
       @topic = Topic.find_by(id: params[:topic_id])
+      @company = Company.find_by(id: @topic.company.id)
       @topic.point = @topic.price
-      if @topic.save
+      @topic.save
+      @company.point = @topic.price
+      if @company.save
         redirect_to("/users/show")
       else
         render :new
@@ -41,8 +51,11 @@ class UsersController < ApplicationController
     
     def reply_point
       @reply = Reply.find_by(id: params[:reply_id])
+      @company = Company.find_by(id: @reply.company.id)
       @reply.point = @reply.price
-      if @reply.save
+      @reply.save
+      @company.point = @reply.price
+      if @company.save
         redirect_to("/users/show")
       else
         render :new

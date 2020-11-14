@@ -1,4 +1,5 @@
 <div class="c-show text-center">
+    <%= notice %>
     <p>
       <img src ="<%= current_company.profile_image %>">
     </p>
@@ -15,17 +16,16 @@
       <%= current_company.profile %>
     </p>
     <%= link_to("プロフィール編集","/companies/edit") %>
-    <% current_company.topics.each do |topic| %>
+    <% @topics.each do |topic| %>
       <p>
         <%= topic.content %><br>
-        <%= topic.price %>
       </p>
       <div class="row">
         <div class="col-md-offset-5 col-md-2">
             <%= image_tag topic.image_name.url %>
         </div>
       </div>
-      <br>
+      <%= topic.price %><br>
       <p>
         <%= topic.created_at %>
       </p>
