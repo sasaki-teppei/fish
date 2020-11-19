@@ -1,5 +1,84 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
+.top-header{
+    background-color : #000012;
+    height : 50px
+}
+
+.logo{
+    font-size : 20px;
+    color : white;
+    font-weight : 200;
+    padding-top : 12px;
+    font-family : oswald;
+    .logo:hover{
+        color:white;
+    }
+}
+
+.btn{
+    color: white;
+    font-size : 15px;
+    font-family : oswald;
+}
+
+.l-btn{
+    padding-top : 15px;
+    
+  .btn-l{
+    color: white;
+    font-size : 15px;
+    font-family : Oswald;
+}
+
+  .btn-l:hover{
+    color: white;
+}
+}
+
+
+.top-wrapper {
+  width: 100vw;
+  height: 100vh;
+  background-image: image-url('top.jpeg');
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+  background-color: #464646;
+  
+  .navigation{
+      font-size : 30px;
+      color : white;
+      margin-top : 200px;
+      font-family : Oswald;
+  }
+}
+
+
+.button {
+  display       : inline-block;
+  border-radius : 5%;          /* 角丸       */
+  font-size     : 8pt;        /* 文字サイズ */
+  text-align    : center;      /* 文字位置   */
+  cursor        : pointer;     /* カーソル   */
+  padding       : 3px 3px;   /* 余白       */
+  background    : 0,0,255,0.1;     /* 背景色     */
+  font-color    : white;     /* 文字色     */
+  line-height   : 1em;         /* 1行の高さ  */
+  transition    : .3s;         /* なめらか変化 */
+  box-shadow    : 6px 6px 3px #666666;  /* 影の設定 */
+  border        : 2px solid white;    /* 枠の指定 */
+  margin-right  : 50px;
+}
+.button:hover {
+  box-shadow    : none;        /* カーソル時の影消去 */
+  background    : 0,0,255,0.3;     /* 文字色     */
+  .btn{
+      color : white;
+  }
+}
+
 .navigation{
     padding-top: 70px;
 }
@@ -17,4 +96,9 @@
 }
 .c-image{
     display: inline-block;
+}
+
+.text-white{
+    padding-top: 30px;
+    color : white;
 }
