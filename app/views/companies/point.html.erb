@@ -1,15 +1,4 @@
-<%#= @topics.all.sum(:point) %>
-<%#= @replies.all.sum(:point) %>
-<%# array = [] %>
-<%# @replies.all.each do |reply| %>
-<%# @topics.all.each do |topic| %>
-  <%# array = topic.point, reply.point %>
-<%# end %>
-<%# end %>
-<%#= array %>
 <h>総売上ポイント</h><br>
-<%# @sum = @topics.all.sum(:price) ++ @replies.all.sum(:price) %><br>
-<%#= @sum %>
 <% if @company.point.present? %>
   <%= @company.point %>
 <% else %>
@@ -18,3 +7,7 @@
 <%= form_tag("/companies/transfer") do%>
   <%= submit_tag"振り込み依頼をする" %>
 <% end %>
+<h>過去の振り込み一覧</h><br>
+<% @records.each |record| %>
+  <h><%= record.created_at.strftime('%Y/%m/%d') %>日</h><br>
+  <h><%= record %>ptの振り込み依頼をしました。</h><br>

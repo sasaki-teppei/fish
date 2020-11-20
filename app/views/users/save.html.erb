@@ -8,7 +8,7 @@
   <h>お値段</h><br>
     <%= like.topic.price %><br>
   <h>日時</h>
-      <%= like.topic.created_at %><br>
+      <%= like.topic.created_at.strftime('%Y/%m/%d') %><br>
   <% if like.topic.buyer_id.nil? %>
     <%= link_to("購入する","/buy/#{like.id}/like_detail") %>
   <% else %>

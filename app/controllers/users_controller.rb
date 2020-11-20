@@ -12,7 +12,7 @@ class UsersController < ApplicationController
                          password: params[:password])
         if @user.save
           session[:user_id] = @user.id
-          UserNotifierMailer.send_signup_email(@user).deliver
+          LoginMailer.send_when_create(@user).deliver
           #binding.pry
           redirect_to ("/users/#{@user.id}")
         end

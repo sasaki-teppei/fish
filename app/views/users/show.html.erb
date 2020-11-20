@@ -10,7 +10,7 @@
       <% current_user.posts.each do |post| %>
         <p>
             <%= link_to(post.content,"/posts/#{post.id}") %>
-            <%= post.created_at %>
+            <%= post.created_at.strftime('%Y/%m/%d') %>
         </p>
         <br>
       <% end %>

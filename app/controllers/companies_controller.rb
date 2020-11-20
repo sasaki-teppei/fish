@@ -66,10 +66,13 @@ class CompaniesController < ApplicationController
     @company = Company.find_by(id: current_company.id)
     @topics = Topic.where(id: current_company.id)
     @replies = Reply.where(id: current_company.id)
+    @records = Record.where(company_id: current_company.id)
   end
   
   def transfer
     @company = Company.find_by(id: current_company.id)
+    @record = Record.new(company_id: current_company.id, record: @company.point)
+    @record.save
     @company.point = nil
     if @company.save
       flash[:notice] = "振り込み依頼が完了しました"
