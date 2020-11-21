@@ -1,4 +1,4 @@
-<%= form_tag("/companies/fix",{multipart: true}) do %><br>
+<%= form_tag("/companies/update", method: :patch, multipart: true) do %><br>
   <h>プロフィール画像の設定</h><br>
   <%= file_field_tag :profile_image %><br>
   <h>自己紹介文</h><br>

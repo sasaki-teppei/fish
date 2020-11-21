@@ -8,6 +8,7 @@
   <%= submit_tag"振り込み依頼をする" %>
 <% end %>
 <h>過去の振り込み一覧</h><br>
-<% @records.each |record| %>
+<% @records.each |record| do %>
   <h><%= record.created_at.strftime('%Y/%m/%d') %>日</h><br>
   <h><%= record %>ptの振り込み依頼をしました。</h><br>
+<% end %>

@@ -1,5 +1,5 @@
 <div class="reply text-center">
-    <%= form_tag("/topics/create",{multipart: true}) do %>
+    <%= form_tag("/topics", method: :post, multipart: true) do %>
       <h>商品詳細</h><br>
       <textarea name="content"></textarea><br>
       <h>お値段</h><br>

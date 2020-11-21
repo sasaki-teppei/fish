@@ -15,7 +15,7 @@
     <p>
       <%= current_company.profile %>
     </p>
-    <%= link_to("プロフィール編集","/companies/edit") %>
+    <%= link_to "プロフィール編集", edit_company_path %>
     <% @topics.each do |topic| %>
       <p>
         <%= topic.content %><br>

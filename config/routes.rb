@@ -1,63 +1,72 @@
 Rails.application.routes.draw do
-  get 'companies/trade'
-  get 'companies/point'
-  post 'companies/:topic_id/ship' => 'companies#ship'
-  post 'companies/:reply_id/reply_ship' => 'companies#reply_ship'
-  post 'users/:topic_id/point' => 'users#point'
-  post 'users/:reply_id/reply_point' => 'users#reply_point'
-  post 'companies/transfer'
-  get 'users/trade'
-  get 'buy/detail'
-  get 'buy/done'
-  get 'detail/done'
-  get 'users/save'
-  get 'users/payment'
-  get 'top/index'
-  post 'top/company_logout' => 'top#company_logout'
-  post 'top/user_logout' => 'top#user_logout'
-  get 'topics/new'
-  get 'replies/new'
-  get 'top/company_login' => 'top#company_login_form'
-  post 'company_login' =>'top#company_login'
-  get 'top/user_login' => 'top#user_login_form'
-  post 'user_login' => 'top#user_login'
-  post 'top/index' => 'top#company_logout'
-  post 'top/index' => 'top#user_logout'
-  get 'posts/new'
-  get 'companies/new'
-  get 'companies/edit'
-  post 'companies/fix'
-  post'companies/create'
-  get 'companies/:id' => 'companies#show'
-  get 'companies/show'
-  get 'users/index'
-  get 'users/new'
-  post 'users/create'
-  get 'users/:id' => 'users#show'
-  get 'users/:id/edit' => 'users#edit'
-  get 'posts/:id/new' => 'posts#new'
-  post 'posts/:id/create' => 'posts#create'
-  get 'posts/index'
-  get 'posts/:id' => 'posts#show'
+  root 'tops#index'
+  
+  resources :tops do
+    
+    collection do
+      get 'company_login_form' 
+      get 'user_login_form'
+      post 'company_login'
+      post 'user_login'
+    end
+  
+  end
+  
+  resources :companies do
+    post 'companies/:topic_id/ship' => 'companies#ship'
+    post 'companies/:reply_id/reply_ship' => 'companies#reply_ship'
+    post 'companies/transfer'
+    
+     collection do
+       get 'trade'
+       get 'point'
+     end
+      
+  end
+  
+  resources :users do 
+    post 'users/:topic_id/point' => 'users#point'
+    post 'users/:reply_id/reply_point' => 'users#reply_point'
+    
+    collection do
+      get 'save'
+      get 'paytment'
+      get 'trade'
+    end
+  
+  end
+  
+  resources :posts 
+
   get 'replies/:post_id/new' => 'replies#new'
   post 'replies/create'
-  get 'posts/show'
-  get 'topics/new'
-  post 'topics/create'
-  get  'companies/show'
-  get 'topics/index'
+  
+  resources :topics
+  
+  resources :card do
+    
+    collection do
+      post 'delete'
+    end
+    
+  end
+  
   post 'likes/create' => 'likes#create'
-  get 'card/new'
-  post 'card/create'
-  get 'card/show'
-  post 'card/delete'
-  get 'buy/:reply_id/detail' => 'buy#detail'
-  post 'buy/pay'
-  get 'buy/:topic_id/topic_detail' => 'buy#topic_detail'
-  post 'buy/topic_pay'
-  get 'buy/:like_id/like_detail' => 'buy#like_detail'
-  post 'buy/like_topic_pay'
-  get 'buy/done'
-  root 'top#index'
+  
+  resource :buy do
+    get 'buy/:reply_id/detail' => 'buy#detail'
+    post 'buy/pay'
+    get 'buy/:topic_id/topic_detail' => 'buy#topic_detail'
+    post 'buy/topic_pay'
+    get 'buy/:like_id/like_detail' => 'buy#like_detail'
+    post 'buy/like_topic_pay'
+    get 'buy/done'
+    
+    member do
+        get 'like_detail'
+    end
+    
+  end
+  
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

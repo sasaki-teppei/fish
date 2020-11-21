@@ -2,13 +2,13 @@
   <div class="top-header">
     <div class="row">
       <div class="col-md-offset-2 col-md-2 logo">
-        <%= link_to "地魚マーケット","/top/index", class: 'logo' %>
+        <%= link_to "地魚マーケット","/tops", class: 'logo' %>
       </div>
       <div class="col-md-2 l-btn">
-      　<%= link_to "業者様ログイン","/top/company_login", class: 'btn-l'%>
+      　<%= link_to "業者様ログイン","/tops/company_login_form", class: 'btn-l'%>
       </div>
       <div class="col-md-2 l-btn">       
-        <%= link_to "お客様ログイン","/top/user_login", class: 'btn-l'%>
+        <%= link_to "お客様ログイン","/tops/user_login_form", class: 'btn-l'%>
       </div>
     </div>
   </div>
@@ -21,10 +21,10 @@
       </div>
       <div class="row">
         <div class="col-md-offset-4 col-md-2 button">
-          <%= link_to '業者様', companies_new_path , class: 'btn' %>
+          <%= link_to '業者様', "/companies/new" , class: 'btn' %>
         </div>
         <div class="col-md-2 button">
-          <%= link_to 'お客様', users_new_path , class: 'btn' %>
+          <%= link_to 'お客様', "/users/new" , class: 'btn' %>
         </div>
       </div>
     </div>

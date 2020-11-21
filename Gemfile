@@ -41,6 +41,7 @@ gem 'rolify'
 gem 'payjp'
 gem 'dotenv-rails'
 gem 'jquery-rails'
+gem 'safe_attributes'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

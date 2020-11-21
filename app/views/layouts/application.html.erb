@@ -20,7 +20,7 @@
             <%= link_to("新規投稿","/topics/new") %>
           </div>
           <div class="col-md-1">
-            <%= link_to("投稿一覧","/posts/index") %>
+            <%= link_to("投稿一覧","/posts") %>
           </div>
           <div class="col-md-1">
             <%= link_to("取引一覧","/companies/trade") %>
@@ -29,7 +29,7 @@
             <%= link_to("ポイント一覧","/companies/point") %>
           </div>
           <div class="col-md-1">
-            <%= link_to("ログアウト","/top/company_logout",{method: "post"}) %>
+            <%= link_to("ログアウト","/companies/destroy", method: :delete) %>
           </div>
         </div>
       <% end %>
@@ -39,10 +39,10 @@
             <%= link_to("ホーム画面","/users/show") %>
           </div>
           <div class="col-md-1">
-            <%= link_to("新規投稿","/posts/#{current_user.id}/new") %>
+            <%= link_to("新規投稿","/posts/new") %>
           </div>
           <div class="col-md-1">
-            <%= link_to("投稿一覧", "/topics/index") %>
+            <%= link_to("投稿一覧", "/topics/show") %>
           </div>
           <div class="col-md-2">
             <%= link_to("いいね！した投稿","/users/save") %>
@@ -54,7 +54,7 @@
             <%= link_to('お支払い方法',"/card/show") %>
           </div>
           <div class="col-md-1">
-            <%= link_to("ログアウト","/top/user_logout",{method: "post"}) %>
+            <%= link_to("ログアウト","/users/destroy", method: :delete) %>
           </div>
         </div>
       <% end %>

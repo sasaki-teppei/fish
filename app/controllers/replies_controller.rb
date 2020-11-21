@@ -13,9 +13,9 @@ class RepliesController < ApplicationController
     @reply.image_name = params[:image_name]
     #binding.pry
     if @reply.save
-      redirect_to("/companies/#{@reply.company_id}")
+      redirect_to("/companies/show")
     else
-      render :new
+      redirect_to("/companies/trade")
     end
   end
   

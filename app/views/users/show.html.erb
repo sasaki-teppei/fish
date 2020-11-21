@@ -4,10 +4,7 @@
           ユーザー名：
           <%= current_user.user_name %>
       </p>
-      <p>
-          <%= link_to("編集","/users/#{current_user.id}/edit") %>
-      </p>
-      <% current_user.posts.each do |post| %>
+      <% @posts.each do |post| %>
         <p>
             <%= link_to(post.content,"/posts/#{post.id}") %>
             <%= post.created_at.strftime('%Y/%m/%d') %>

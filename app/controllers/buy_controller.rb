@@ -17,7 +17,6 @@ class BuyController < ApplicationController
   def pay
     @card = Card.where(user_id: current_user.id).first
     Payjp.api_key = ENV['PAYJP_PRIVATE_KEY']
-    #binding.pry
     Payjp::Charge.create(
     :amount => params[:reply_price], 
     :customer => @card.customer_id,
@@ -43,7 +42,6 @@ class BuyController < ApplicationController
   end
   
   def topic_pay
-    #binding.pry
     @card = Card.where(user_id: current_user.id).first
     Payjp.api_key = ENV['PAYJP_PRIVATE_KEY']
     Payjp::Charge.create(
@@ -73,7 +71,6 @@ class BuyController < ApplicationController
   def like_topic_pay
     @card = Card.where(user_id: current_user.id).first
     Payjp.api_key = ENV['PAYJP_PRIVATE_KEY']
-    #binding.pry
     Payjp::Charge.create(
     :amount => params[:like_topic_price], 
     :customer => @card.customer_id,

@@ -5,7 +5,7 @@ class LikesController < ApplicationController
         like.topic_id = params[:topic_id]
         
         if like.save
-            redirect_to('/topics/index')
+            redirect_to('/topics/show')
         else
             redirect_to('/top')
         end

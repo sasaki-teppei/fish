@@ -3,14 +3,13 @@ class PostsController < ApplicationController
   
   def new
     @post = Post.new
-    @user = User.find_by(id: params[:id])
+    @user = User.find_by(id: current_user.id)
   end
   
   def create
-    @user = User.find_by(id: params[:id])
     @post = Post.new(user_id: current_user.id, content: params[:content])
     @post.save
-    redirect_to("/users/#{@user.id}")
+    redirect_to("/users/show")
   end
   
   def index

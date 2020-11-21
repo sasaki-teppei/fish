@@ -12,20 +12,18 @@ class UsersController < ApplicationController
                          password: params[:password])
         if @user.save
           session[:user_id] = @user.id
-          LoginMailer.send_when_create(@user).deliver
-          #binding.pry
-          redirect_to ("/users/#{@user.id}")
+          redirect_to ("/users/show")
         end
     end
     
     def show
-        @user = User.find_by(id: params[:id])
-        @post = Post.find_by(user_id: current_user.id)
+        @user = User.find_by(id: current_user.id)
+        @posts = Post.where(user_id: current_user.id).order(created_at: :desc)
     end
     
-    def index
-        @replies = Reply.where(post_id: params[:post_id])
-    end
+    #def index
+    #    @replies = Reply.where(post_id: params[:post_id])
+    #end
     
     def save
         @likes = Like.where(user_id: current_user.id) 
@@ -61,4 +59,10 @@ class UsersController < ApplicationController
         render :new
       end
     end
+    
+  def destroy
+    session[:user_id] = nil
+    redirect_to("/tops")
+  end
+  
 end

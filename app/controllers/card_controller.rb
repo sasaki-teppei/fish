@@ -35,12 +35,11 @@ class CardController < ApplicationController
       customer.delete
       card.delete
     end
-      redirect_to action: "show"
+      redirect_to ("/card/show")
   end
   
   def show 
     @card = Card.where(user_id: current_user.id).first
-    #binding.pry
     if @card.blank?
     else
       Payjp.api_key = ENV["PAYJP_PRIVATE_KEY"]

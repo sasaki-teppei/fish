@@ -25,11 +25,10 @@ class CompaniesController < ApplicationController
     @company = Company.find_by(id: current_company.id)
   end
   
-  def fix
+  def update
     @company = Company.find_by(id: current_company.id)
     @company.profile = params[:profile]
     @company.profile_image = params[:profile_image]
-    #binding.pry
     if @company.save
       redirect_to("/companies/show")
     end
@@ -37,14 +36,12 @@ class CompaniesController < ApplicationController
   
   def trade
     @topics = Topic.where(company_id: current_company.id).where.not(buyer_id: nil).order(created_at: :desc)
-    #binding.pry
     @replies = Reply.where(company_id: current_company.id).where.not(buyer_id: nil).order(created_at: :desc)
   end
   
   def ship
     @topic = Topic.find_by(id: params[:topic_id])
     @topic.address = nil
-    #binding.pry
     if @topic.save
       redirect_to("/companies/show")
     else
@@ -78,6 +75,11 @@ class CompaniesController < ApplicationController
       flash[:notice] = "振り込み依頼が完了しました"
       redirect_to("/companies/show")
     end
+  end
+  
+  def destroy
+    session[:company_id] = nil
+    redirect_to("/tops")
   end
   
 end

@@ -1,5 +1,5 @@
 <h>クレジットカード情報登録</h>
-<%= form_tag("/card/create", id: "charge-form", name: "inputForm") do %>
+<%= form_tag("/card", id: "charge-form", name: "inputForm") do %>
   <p>カード番号</p>
   <%= text_field_tag "number", "", type: "text", id: "card_number", maxlength: "16" %>
   <p>有効期限</p>

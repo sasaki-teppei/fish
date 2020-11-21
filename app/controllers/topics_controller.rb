@@ -9,7 +9,6 @@ class TopicsController < ApplicationController
     @topic.content = params[:content]
     @topic.price = params[:price]
     @topic.image_name = params[:image_name]
-    #binding.pry
     if @topic.save
       redirect_to("/companies/#{@topic.company_id}")
     else
@@ -17,7 +16,7 @@ class TopicsController < ApplicationController
     end
   end
   
-  def index
+  def show
     @topics = Topic.all.order(created_at: :desc)
   end
   
