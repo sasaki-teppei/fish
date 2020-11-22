@@ -36,7 +36,13 @@ class UsersController < ApplicationController
       @company = Company.find_by(id: @topic.company.id)
       @topic.point = @topic.price
       @topic.save
-      @company.point = @company.point + @topic.price
+      
+      if @company.point.present?
+        @company.point = @company.point + @topic.price 
+      else
+        @company.point = @topic.price
+      end
+      
       if @company.save
         redirect_to("/users/show")
       else
@@ -49,7 +55,13 @@ class UsersController < ApplicationController
       @company = Company.find_by(id: @reply.company.id)
       @reply.point = @reply.price
       @reply.save
-      @company.point = @reply.price
+      
+      if @company.point.present?
+        @company.point = @company.point + @reply.price 
+      else
+        @company.point = @reply.price
+      end
+      
       if @company.save
         redirect_to("/users/show")
       else

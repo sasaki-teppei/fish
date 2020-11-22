@@ -12,7 +12,7 @@ class RepliesController < ApplicationController
     @reply.content = params[:content]
     @reply.price = params[:price]
     @reply.image_name = params[:image_name]
-    binding.pry
+    #binding.pry
     if @reply.save
       flash[:notice] = "送信が完了しました"
       redirect_to("/companies/show")
