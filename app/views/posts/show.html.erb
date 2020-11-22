@@ -13,7 +13,7 @@
     <h>日時</h><br>
       <%= reply.created_at.strftime('%Y/%m/%d') %><br>
     <% if reply.buyer_id.nil? %>
-      <%= link_to("購入する","/buy/#{reply.id}/detail") %><br>
+      <%= link_to("購入する","/payments/#{reply.id}/detail") %><br>
     <% else %>
       <h>売り切れました！</h><br>
     <% end %>

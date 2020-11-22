@@ -1,7 +1,8 @@
 class RepliesController < ApplicationController
   def new
     @reply = Reply.new
-    @post_id = params[:post_id]
+    @post_id = params[:id]
+    #binding.pry
   end
   
   def create

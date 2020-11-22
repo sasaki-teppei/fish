@@ -17,7 +17,7 @@
     <% end %>
     <% end %><br>
     <% if topic.buyer_id.nil? %> 
-      <%= link_to("購入する","/buy/#{topic.id}/topic_detail") %><br>
+      <%= link_to("購入する","/payments/#{topic.id}/topic_detail") %><br>
     <% else %>
       <h>売り切れました！</h><br>
     <% end %>

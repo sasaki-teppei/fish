@@ -2,6 +2,6 @@
   <div class="p-index text-center">
     <%= post.content %>
     <%= post.created_at.strftime('%Y/%m/%d') %>
-    <%= link_to("提案する","/replies/#{post.id}/new") %>
+    <%= link_to "提案する", "/replies/#{post.id}/new" %>
   </div>
 <% end %>

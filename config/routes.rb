@@ -36,12 +36,17 @@ Rails.application.routes.draw do
   
   end
   
-  resources :posts 
-
-  get 'replies/:post_id/new' => 'replies#new'
-  post 'replies/create'
-  
   resources :topics
+  
+  resources :posts 
+  
+  resources :replies do
+    
+    member do
+      get 'new'
+    end
+  
+  end
   
   resources :card do
     
@@ -53,17 +58,19 @@ Rails.application.routes.draw do
   
   post 'likes/create' => 'likes#create'
   
-  resource :buy do
-    get 'buy/:reply_id/detail' => 'buy#detail'
-    post 'buy/pay'
-    get 'buy/:topic_id/topic_detail' => 'buy#topic_detail'
-    post 'buy/topic_pay'
-    get 'buy/:like_id/like_detail' => 'buy#like_detail'
-    post 'buy/like_topic_pay'
-    get 'buy/done'
+  resources :payments do
+    
+    collection do
+      get 'done'
+      post 'pay'
+      post 'topic_pay'
+      post 'like_pay'
+    end
     
     member do
-        get 'like_detail'
+      get 'detail'
+      get 'topic_detail'
+      get 'like_detail'
     end
     
   end

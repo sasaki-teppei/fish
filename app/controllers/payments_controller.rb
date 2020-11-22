@@ -1,10 +1,10 @@
-class BuyController < ApplicationController
-  
+class PaymentsController < ApplicationController
+      
   require 'payjp'
   
   def detail
     card = Card.where(user_id: current_user.id).first
-    @reply = Reply.find_by(id: params[:reply_id])
+    @reply = Reply.find_by(id: params[:id])
     if card.blank?
       redirect_to("/users/show")
     else
@@ -26,12 +26,12 @@ class BuyController < ApplicationController
     @reply.buyer_id = current_user.id
     @reply.address = current_user.address
     @reply.save
-    redirect_to ("/buy/done")
+    redirect_to ("/payments/done")
   end
 
   def topic_detail
     card = Card.where(user_id: current_user.id).first
-    @topic = Topic.find_by(id: params[:topic_id])
+    @topic = Topic.find_by(id: params[:id])
     if card.blank?
       redirect_to("/users/show")
     else
@@ -53,12 +53,12 @@ class BuyController < ApplicationController
     @topic.buyer_id = current_user.id
     @topic.address = current_user.address
     @topic.save
-    redirect_to ("/buy/done")
+    redirect_to ("/payments/done")
   end
   
   def like_detail
     card = Card.where(user_id: current_user.id).first
-    @like = Like.find_by(id: params[:like_id])
+    @like = Like.find_by(id: params[:id])
     if card.blank?
       redirect_to("/users/show")
     else
@@ -68,7 +68,7 @@ class BuyController < ApplicationController
     end
   end
   
-  def like_topic_pay
+  def like_pay
     @card = Card.where(user_id: current_user.id).first
     Payjp.api_key = ENV['PAYJP_PRIVATE_KEY']
     Payjp::Charge.create(
@@ -80,6 +80,7 @@ class BuyController < ApplicationController
     @topic.buyer_id = current_user.id
     @topic.address = current_user.address
     @topic.save
-    redirect_to ("/buy/done")
+    redirect_to ("/payments/done")
   end
+  
 end

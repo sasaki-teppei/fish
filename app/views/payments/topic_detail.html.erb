@@ -1,18 +1,18 @@
 <h>購入を確定しますか？</h><br>
 <h>商品詳細</h><br>
-<%= @like.topic.content %><br>
+<%= @topic.content %><br>
 <h>値段</h><br>
-<%= @like.topic.price %><br>
-<img src ="<%= @like.topic.image_name %>"><br>
+<%= @topic.price %><br>
+<img src ="<%= @topic.image_name %>"><br>
 <% if !@default_card_information.blank? %>
    <%= "************"+@default_card_information.last4 %>
   <br>
   <% exp_month = @default_card_information.exp_month.to_s %>
   <% exp_year = @default_card_information.exp_year.to_s.slice(2,3) %>
   <%= exp_month + " / " + exp_year %><br>
-  <%= form_tag("/buy/like_topic_pay") do %>
-    <%= hidden_field_tag :like_topic_price, @like.topic.price %>
-    <%= hidden_field_tag :like_topic_id, @like.topic_id %>
-    <%= submit_tag"商品を購入する" %> 
+  <%= form_tag("/payments/topic_pay") do %>
+    <%= hidden_field_tag :topic_price, @topic.price %>
+    <%= hidden_field_tag :topic_id, @topic.id %>
+    <%= submit_tag"商品を購入する" %>
   <% end %>
 <% end %>
