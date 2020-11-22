@@ -7,6 +7,7 @@ class PaymentsController < ApplicationController
     @reply = Reply.find_by(id: params[:id])
     if card.blank?
       redirect_to("/users/show")
+      flash[:notice] = "カード情報が登録されてません"
     else
       Payjp.api_key = ENV["PAYJP_PRIVATE_KEY"]
       customer = Payjp::Customer.retrieve(card.customer_id)
@@ -34,6 +35,7 @@ class PaymentsController < ApplicationController
     @topic = Topic.find_by(id: params[:id])
     if card.blank?
       redirect_to("/users/show")
+      flash[:notice] = "カード情報が登録されてません"
     else
       Payjp.api_key = ENV["PAYJP_PRIVATE_KEY"]
       customer = Payjp::Customer.retrieve(card.customer_id)
@@ -61,6 +63,7 @@ class PaymentsController < ApplicationController
     @like = Like.find_by(id: params[:id])
     if card.blank?
       redirect_to("/users/show")
+      flash[:notice] = "カード情報が登録されてません"
     else
       Payjp.api_key = ENV["PAYJP_PRIVATE_KEY"]
       customer = Payjp::Customer.retrieve(card.customer_id)

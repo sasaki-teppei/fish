@@ -1,5 +1,5 @@
 <div class="reply text-center">
-    <%= form_tag replies_create_path, multipart: true do %>
+    <%= form_tag replies_path, multipart: true do %>
       <%= hidden_field_tag :post_id, @post_id %>
       <h>商品詳細</h><br>
       <textarea name="content"></textarea><br>

@@ -21,10 +21,6 @@ class UsersController < ApplicationController
         @posts = Post.where(user_id: current_user.id).order(created_at: :desc)
     end
     
-    #def index
-    #    @replies = Reply.where(post_id: params[:post_id])
-    #end
-    
     def save
         @likes = Like.where(user_id: current_user.id) 
     end
@@ -32,14 +28,15 @@ class UsersController < ApplicationController
     def trade
         @topics = Topic.where(buyer_id: current_user.id).order(created_at: :desc)
         @replies = Reply.where(buyer_id: current_user.id).order(created_at: :desc)
+        @dones = Done.where(user_id: current_user.id)
     end
     
     def point
-      @topic = Topic.find_by(id: params[:topic_id])
+      @topic = Topic.find_by(id: params[:id])
       @company = Company.find_by(id: @topic.company.id)
       @topic.point = @topic.price
       @topic.save
-      @company.point = @topic.price
+      @company.point = @company.point + @topic.price
       if @company.save
         redirect_to("/users/show")
       else
@@ -48,7 +45,7 @@ class UsersController < ApplicationController
     end
     
     def reply_point
-      @reply = Reply.find_by(id: params[:reply_id])
+      @reply = Reply.find_by(id: params[:id])
       @company = Company.find_by(id: @reply.company.id)
       @reply.point = @reply.price
       @reply.save

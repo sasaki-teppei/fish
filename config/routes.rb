@@ -13,25 +13,31 @@ Rails.application.routes.draw do
   end
   
   resources :companies do
-    post 'companies/:topic_id/ship' => 'companies#ship'
-    post 'companies/:reply_id/reply_ship' => 'companies#reply_ship'
-    post 'companies/transfer'
     
      collection do
        get 'trade'
        get 'point'
+       post 'transfer'
+     end
+     
+     member do
+       post 'ship'
+       post 'reply_ship'
      end
       
   end
   
   resources :users do 
-    post 'users/:topic_id/point' => 'users#point'
-    post 'users/:reply_id/reply_point' => 'users#reply_point'
-    
+
     collection do
       get 'save'
       get 'paytment'
       get 'trade'
+    end
+    
+    member do
+      post 'point'
+      post 'reply_point'
     end
   
   end

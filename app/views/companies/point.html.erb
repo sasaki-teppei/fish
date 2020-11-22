@@ -1,14 +1,14 @@
 <h>総売上ポイント</h><br>
 <% if @company.point.present? %>
   <%= @company.point %>
-<% else %>
-  <h>0 pt</h>
-<% end %>
-<%= form_tag("/companies/transfer") do%>
+  <%= form_tag("/companies/transfer") do%>
   <%= submit_tag"振り込み依頼をする" %>
+  <% end %>
+<% else %>
+  <h>0 pt</h><br>
 <% end %>
 <h>過去の振り込み一覧</h><br>
-<% @records.each |record| do %>
+<% @records.each do |record| %>
   <h><%= record.created_at.strftime('%Y/%m/%d') %>日</h><br>
-  <h><%= record %>ptの振り込み依頼をしました。</h><br>
+  <h><%= record.record %>ptの振り込み依頼をしました。</h><br>
 <% end %>

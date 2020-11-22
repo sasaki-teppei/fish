@@ -10,7 +10,7 @@
     <% else %>
       <h>配送されました！</h><br>
       <h>到着次第受け取り評価をお願いします。</h><br>
-      <%= link_to "受け取りました！","/users/#{topic.id}/point", company_id: topic.company.id, method: :post %><br>
+      <%= link_to "受け取りました！", "/users/#{topic.id}/point", method: :post %><br>
     <% end %>
   <% else %>
     <h>取引が完了しました！</h><br>
@@ -29,7 +29,7 @@
     <% else %>
       <h>配送されました！</h><br>
       <h>到着次第受け取り評価をお願いします。</h><br>
-      <%= link_to "受け取りました！","/users/#{reply.id}/reply_point", reply_id: reply.company.id, method: :post %><br>
+      <%= link_to "受け取りました！", "/users/#{reply.id}/reply_point", method: :post %><br>
     <% end %>
   <% else %>
     <h>取引が完了しました！</h><br>

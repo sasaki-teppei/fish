@@ -40,9 +40,10 @@ class CompaniesController < ApplicationController
   end
   
   def ship
-    @topic = Topic.find_by(id: params[:topic_id])
+    @topic = Topic.find_by(id: params[:id])
     @topic.address = nil
     if @topic.save
+      flash[:notice] = "発送通知が完了しました"
       redirect_to("/companies/show")
     else
       render :new
@@ -50,9 +51,10 @@ class CompaniesController < ApplicationController
   end
   
   def reply_ship
-    @reply = Reply.find_by(id: params[:reply_id])
+    @reply = Reply.find_by(id: params[:id])
     @reply.address = nil
     if @reply.save
+      flash[:notice] = "発送通知が完了しました"
       redirect_to("/companies/show")
     else
       render :new
@@ -68,7 +70,9 @@ class CompaniesController < ApplicationController
   
   def transfer
     @company = Company.find_by(id: current_company.id)
-    @record = Record.new(company_id: current_company.id, record: @company.point)
+    @record = Record.new
+    @record.company_id = current_company.id 
+    @record.record = @company.point
     @record.save
     @company.point = nil
     if @company.save

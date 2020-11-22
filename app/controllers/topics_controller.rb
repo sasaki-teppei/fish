@@ -9,8 +9,10 @@ class TopicsController < ApplicationController
     @topic.content = params[:content]
     @topic.price = params[:price]
     @topic.image_name = params[:image_name]
+    #binding.pry
     if @topic.save
-      redirect_to("/companies/#{@topic.company_id}")
+      flash[:notice] = "送信が完了しました"
+      redirect_to("/companies/show")
     else
       render :new
     end
