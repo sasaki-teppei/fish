@@ -26,6 +26,7 @@ class PaymentsController < ApplicationController
     @reply = Reply.find_by(id: params[:reply_id])
     @reply.buyer_id = current_user.id
     @reply.address = current_user.address
+    @reply.time = Time.current
     @reply.save
     redirect_to ("/payments/done")
   end
@@ -54,6 +55,7 @@ class PaymentsController < ApplicationController
     @topic = Topic.find_by(id: params[:topic_id])
     @topic.buyer_id = current_user.id
     @topic.address = current_user.address
+    @topic.time = Time.current
     @topic.save
     redirect_to ("/payments/done")
   end
@@ -82,6 +84,7 @@ class PaymentsController < ApplicationController
     @topic = Topic.find_by(id: params[:like_topic_id])
     @topic.buyer_id = current_user.id
     @topic.address = current_user.address
+    @topic.time = Time.current
     @topic.save
     redirect_to ("/payments/done")
   end

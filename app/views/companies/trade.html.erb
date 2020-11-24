@@ -2,6 +2,8 @@
   <img src="<%=topic.image_name%>"><br>
   <%= topic.content %><br>
   <%= topic.price %><br>
+  <h>お客様が購入した時刻です。</h><br>
+  <%= topic.time.strftime("%Y-%m-%d %H:%M") %><br>
   <% if !topic.point.present? %>
     <% if topic.address.present? %>
       <h>送付先住所</h><br>
@@ -19,6 +21,8 @@
   <img src="<%=reply.image_name%>"><br>
   <%= reply.content %><br>
   <%= reply.price %><br>
+  <h>購入した時刻</h><br>
+  <%= reply.time.strftime("%Y-%m-%d %H:%M") %><br>
   <% if !reply.point.present? %>
     <% if reply.address.present? %>
       <h>送付先住所</h><br>
